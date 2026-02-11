@@ -267,16 +267,31 @@
         </section>
     </div>
 
-    <audio id="global-audio" loop preload="auto"></audio>
-
     <script>
-        const audio = document.getElementById('global-audio');
         const landing = document.getElementById('landing-page');
         const reel = document.getElementById('reel');
         const pages = document.querySelectorAll('.reel-page');
+        
+        // Audio Optimization: Preload all tracks into a Map
+        const audioPlayers = new Map();
         let currentPageIndex = -1;
 
+        function preloadAudio() {
+            pages.forEach((page, index) => {
+                const songSrc = page.getAttribute('data-song');
+                if (songSrc) {
+                    const audio = new Audio(songSrc);
+                    audio.loop = true;
+                    audio.preload = "auto"; // Tell browser to start downloading now
+                    audioPlayers.set(index, audio);
+                }
+            });
+        }
+
         function enterExperience() {
+            // Preload immediately when entering
+            preloadAudio();
+            
             landing.classList.add('fade-out');
             reel.style.display = 'block';
             document.body.style.overflow = 'auto';
@@ -288,29 +303,26 @@
             const windowHeight = window.innerHeight;
             const newIndex = Math.round(scrollPos / windowHeight);
             if (newIndex !== currentPageIndex) {
+                updateMusic(newIndex);
                 currentPageIndex = newIndex;
-                updateMusic(currentPageIndex);
             }
         }
 
-        function updateMusic(index) {
-            const activePage = pages[index];
-            if (!activePage) return;
-            const songSrc = activePage.getAttribute('data-song');
-            if (songSrc) {
-                // Ensure we handle URL encoding for filenames with spaces
-                const currentFile = decodeURIComponent(audio.src.split('/').pop());
-                if (currentFile !== songSrc) {
-                    audio.pause();
-                    audio.src = songSrc;
-                    audio.load();
-                    audio.play().catch(e => console.log("Play deferred:", e));
-                }
-            } else {
-                audio.pause();
-                audio.currentTime = 0;
+        function updateMusic(newIndex) {
+            // Stop current playing audio
+            if (currentPageIndex !== -1 && audioPlayers.has(currentPageIndex)) {
+                const currentAudio = audioPlayers.get(currentPageIndex);
+                currentAudio.pause();
+                // We don't reset currentTime to 0 so it feels seamless if they scroll back
+            }
+
+            // Start new audio instantly
+            if (audioPlayers.has(newIndex)) {
+                const nextAudio = audioPlayers.get(newIndex);
+                nextAudio.play().catch(e => console.log("Play blocked by browser:", e));
             }
         }
+
         reel.addEventListener('scroll', handleScroll);
     </script>
 </body>
