@@ -298,7 +298,9 @@
             if (!activePage) return;
             const songSrc = activePage.getAttribute('data-song');
             if (songSrc) {
-                if (audio.src.split('/').pop() !== songSrc) {
+                // Ensure we handle URL encoding for filenames with spaces
+                const currentFile = decodeURIComponent(audio.src.split('/').pop());
+                if (currentFile !== songSrc) {
                     audio.pause();
                     audio.src = songSrc;
                     audio.load();
