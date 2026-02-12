@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For My Forever Valentine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Pinyon+Script&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Pinyon+Script&family=Montserrat:wght@300;400&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --yellow: #FFDE21;
@@ -22,6 +22,7 @@
         
         .main-serif { font-family: 'Playfair Display', serif; }
         .handwritten { font-family: 'Pinyon Script', cursive; }
+        .hindi-text { font-family: 'Playfair Display', serif; } /* Using serif for an elegant look */
 
         .reel-container {
             height: 100vh;
@@ -59,20 +60,37 @@
         .image-container {
             position: relative;
             z-index: 10;
-            width: 88vw;
-            height: 88vw;
-            max-width: 420px;
-            max-height: 420px;
+            width: 80vw;
+            height: 80vw;
+            max-width: 380px;
+            max-height: 380px;
             overflow: hidden;
-            border-radius: 32px;
+            border-radius: 24px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             border: 1px solid rgba(255,255,255,0.15);
+            margin-bottom: 2rem;
         }
         
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .caption-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 2rem;
+            max-width: 450px;
+        }
+
+        .caption-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-style: italic;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         #landing-page, .end-page {
@@ -161,7 +179,7 @@
 
         .music-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             z-index: 20;
             display: flex;
             gap: 4px;
@@ -183,6 +201,7 @@
 </head>
 <body>
 
+    <!-- Landing Page Song 0 -->
     <div id="landing-page">
         <div class="text-reveal" style="animation-delay: 0.3s">
             <h1 class="main-serif text-5xl text-black font-light tracking-tight">For my forever</h1>
@@ -201,7 +220,7 @@
         </div>
         
         <p class="mt-12 text-[10px] font-bold uppercase tracking-[0.5em] text-black/40 text-reveal" style="animation-delay: 1.2s">
-            Tap the vinyl to play
+            Tap the vinyl to start our story
         </p>
     </div>
 
@@ -212,6 +231,13 @@
             <div class="image-container">
                 <img src="Photo 1.jpg" alt="Memory 1" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800'">
             </div>
+            <div class="caption-container">
+                <p class="hindi-text caption-text">
+                    Tumse baat karna aadat ban gayi,<br>
+                    Tumse milna zarurat ban gayi,<br>
+                    Aur pata hi nahi chala kab meri mohabbat ban gayi.
+                </p>
+            </div>
             <div class="music-indicator"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
         </section>
 
@@ -220,6 +246,13 @@
             <div class="blur-bg" style="background-image: url('Photo 2.jpg')"></div>
             <div class="image-container">
                 <img src="Photo 2.jpg" alt="Memory 2" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164883eecd0c?q=80&w=800'">
+            </div>
+            <div class="caption-container">
+                <p class="hindi-text caption-text">
+                    Us din bas ek rasam nahi hui,<br>
+                    Us din meri zindagi ko tumhara naam mil gaya,<br>
+                    Aur mujhe mera ghar.
+                </p>
             </div>
             <div class="music-indicator"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
         </section>
@@ -230,6 +263,13 @@
             <div class="image-container">
                 <img src="Photo 3.jpg" alt="Memory 3" onerror="this.src='https://images.unsplash.com/photo-1474552226712-ac0f0961a954?q=80&w=800'">
             </div>
+            <div class="caption-container">
+                <p class="hindi-text caption-text">
+                    Ek chhoti si angoothi ne,<br>
+                    Meri duniya ko mukammal kar diya,<br>
+                    Ab har kal mein sirf tum ho.
+                </p>
+            </div>
             <div class="music-indicator"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
         </section>
 
@@ -238,6 +278,13 @@
             <div class="blur-bg" style="background-image: url('Photo 4.jpg')"></div>
             <div class="image-container">
                 <img src="Photo 4.jpg" alt="Memory 4" onerror="this.src='https://images.unsplash.com/photo-1516589174184-c6858b16ecb0?q=80&w=800'">
+            </div>
+            <div class="caption-container">
+                <p class="hindi-text caption-text">
+                    Safar khoobsurat tha,<br>
+                    Magar usse bhi zyada khoobsurat tumhara saath tha,<br>
+                    Tab samjha, ghar ek jagah nahi, ek insaan hota hai.
+                </p>
             </div>
             <div class="music-indicator"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
         </section>
@@ -248,10 +295,18 @@
             <div class="image-container">
                 <img src="Photo 5.jpg" alt="Memory 5" onerror="this.src='https://images.unsplash.com/photo-1511733331976-2906c8880d60?q=80&w=800'">
             </div>
+            <div class="caption-container">
+                <p class="hindi-text caption-text">
+                    Ab tum meri aadat bhi ho, ibadat bhi ho,<br>
+                    Meri khamoshi bhi ho, meri chahat bhi ho,<br>
+                    Meri zindagi ki sabse khoobsurat haqeeqat bhi ho.
+                </p>
+            </div>
             <div class="music-indicator"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
         </section>
 
-        <section class="reel-page end-page scroll-snap-align-start">
+        <!-- End Page Song 6 -->
+        <section class="reel-page end-page scroll-snap-align-start" data-song="6.mp3">
             <div class="px-10 flex flex-col items-center">
                 <div class="beating-heart mb-14">
                     <svg viewBox="0 0 24 24" width="80" height="80" fill="currentColor">
@@ -274,34 +329,60 @@
         
         // Audio Optimization: Preload all tracks into a Map
         const audioPlayers = new Map();
-        let currentPageIndex = -1;
+        let currentPageIndex = -2; // -2 means landing page, -1 means transition
 
-        function preloadAudio() {
+        // Initialize Landing Page Audio (0.mp3)
+        const landingAudio = new Audio('0.mp3');
+        landingAudio.loop = true;
+        landingAudio.preload = "auto";
+        audioPlayers.set(-2, landingAudio);
+
+        // Preload other tracks
+        function preloadAllAudio() {
             pages.forEach((page, index) => {
                 const songSrc = page.getAttribute('data-song');
                 if (songSrc) {
                     const audio = new Audio(songSrc);
                     audio.loop = true;
-                    audio.preload = "auto"; // Tell browser to start downloading now
+                    audio.preload = "auto";
                     audioPlayers.set(index, audio);
                 }
             });
         }
 
+        // Handle browser's auto-play policy on window load for landing page
+        window.addEventListener('load', () => {
+            // Some browsers allow auto-play if the user has interacted with the site before,
+            // otherwise, the vinyl tap handles it.
+            landingAudio.play().catch(() => console.log("Landing audio waiting for interaction"));
+        });
+
         function enterExperience() {
-            // Preload immediately when entering
-            preloadAudio();
+            preloadAllAudio();
             
-            landing.classList.add('fade-out');
-            reel.style.display = 'block';
-            document.body.style.overflow = 'auto';
-            setTimeout(() => { handleScroll(); }, 800);
+            // If landing audio wasn't allowed to play on load, play it now, 
+            // then fade it out as we enter.
+            landingAudio.play().then(() => {
+                landing.classList.add('fade-out');
+                reel.style.display = 'block';
+                document.body.style.overflow = 'auto';
+                
+                // Set initial scroll state
+                setTimeout(() => { handleScroll(); }, 800);
+            }).catch(e => {
+                // Fallback if audio still fails
+                landing.classList.add('fade-out');
+                reel.style.display = 'block';
+                document.body.style.overflow = 'auto';
+                setTimeout(() => { handleScroll(); }, 800);
+            });
         }
 
         function handleScroll() {
             const scrollPos = reel.scrollTop;
             const windowHeight = window.innerHeight;
             const newIndex = Math.round(scrollPos / windowHeight);
+            
             if (newIndex !== currentPageIndex) {
                 updateMusic(newIndex);
                 currentPageIndex = newIndex;
@@ -309,18 +390,32 @@
         }
 
         function updateMusic(newIndex) {
-            // Stop current playing audio
-            if (currentPageIndex !== -1 && audioPlayers.has(currentPageIndex)) {
+            // Stop current playing audio (including landing page)
+            if (audioPlayers.has(currentPageIndex)) {
                 const currentAudio = audioPlayers.get(currentPageIndex);
-                currentAudio.pause();
-                // We don't reset currentTime to 0 so it feels seamless if they scroll back
+                fadeOutAudio(currentAudio);
             }
 
             // Start new audio instantly
             if (audioPlayers.has(newIndex)) {
                 const nextAudio = audioPlayers.get(newIndex);
-                nextAudio.play().catch(e => console.log("Play blocked by browser:", e));
+                nextAudio.volume = 1.0;
+                nextAudio.play().catch(e => console.log("Play blocked:", e));
             }
+        }
+
+        function fadeOutAudio(audioObj) {
+            let volume = audioObj.volume;
+            const fadeInterval = setInterval(() => {
+                if (volume > 0.1) {
+                    volume -= 0.1;
+                    audioObj.volume = volume;
+                } else {
+                    audioObj.pause();
+                    audioObj.volume = 1.0; // Reset for next time
+                    clearInterval(fadeInterval);
+                }
+            }, 50);
         }
 
         reel.addEventListener('scroll', handleScroll);
